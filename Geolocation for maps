@@ -6,6 +6,7 @@
  * Source: https://discourse.looker.com/t/get-latitude-longitude-for-any-location-through-google-sheets-and-plot-these-in-looker/5402
  */
 function GEOCODE_GOOGLE(address) {
+  if (address!=""){
     if (address.map) {
         return address.map(GEOCODE_GOOGLE)
     } else {
@@ -16,3 +17,5 @@ function GEOCODE_GOOGLE(address) {
         }
     }
 }
+}
+
