@@ -4,18 +4,20 @@
  * @param {string} address - The address you get the latitude and longitude for.
  * @customfunction
  * Source: https://discourse.looker.com/t/get-latitude-longitude-for-any-location-through-google-sheets-and-plot-these-in-looker/5402
+ * Added a condition to fit arrayformula by Danliebeschutz.com
  */
 function GEOCODE_GOOGLE(address) {
   if (address!=""){
     if (address.map) {
         return address.map(GEOCODE_GOOGLE)
-    } else {
+    } 
+    else {
         var r = Maps.newGeocoder().geocode(address)
         for (var i = 0; i < r.results.length; i++) {
             var res = r.results[i]
             return res.geometry.location.lat + ", " + res.geometry.location.lng
         }
     }
-}
-}
+   }
+ }
 
